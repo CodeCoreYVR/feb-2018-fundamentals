@@ -54,7 +54,7 @@ if (true) {}
 while (true) {}
 
 // a function is value !??!?!??
-// return, allow us to turn a function into a meaningful value
+// return, allows us to turn a function into a meaningful value
 function add(number1, number2) {
     // this function is for developers to print out to the console the result
     // perhaps for debugging purposes
@@ -62,6 +62,8 @@ function add(number1, number2) {
 }
 
 add(5, 6) * 2; // white 11
+add(5, 6) == undefined;
+undefined * 2; // NaN
 
 function add(number1, number2) {
     // produces or turns into the result of this operation
@@ -69,3 +71,5 @@ function add(number1, number2) {
 }
 
 add(5, 6) * 2; // green 11
+add(5, 6) == 11;
+11 * 2; // 22
