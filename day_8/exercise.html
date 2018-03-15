@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise 1</title>
+    <style>
+      input {
+        border: 0px;
+        border-bottom: 1px solid black;
+      }
+
+      input[type=submit] {
+        border-radius: 3px;
+        background-color: blue;
+        color: white;
+        font-family: sans-serif;
+        margin: 5px;
+        padding: 5px;
+        border: 0px;
+      }
+      /* #button {} */
+    </style>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+      // $(document).ready();
+      $(function(){
+        // $('#username').val();
+        $('#username').val('jacob');
+        $('#password').val('summer');
+        $('#username').keyup(function(event) {
+          // console.log("a key was pressed");
+          if (isNaN(parseInt(event.key))) {
+            console.log("a string was typed?");
+          } else {
+            console.log("a number was typed?");
+            // how do i get rid of the last character?
+            let trimmed = $('#username').val().slice(0, -1);
+            $('#username').val( trimmed );
+          }
+          //console.log(typeof event.key);
+          //console.log(event.key);
+          // "1", "2", "3", "4", "5"
+        });
+        $('form').submit(function(event) {
+          //event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Log In</h1>
+    <form>
+      <input id="username" type="text">
+      <input id="password" type="password">
+      <input id="button" type="submit">
+    </form>
+  </body>
+</html>

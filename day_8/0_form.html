@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form Example</title>
+    <style>
+      #username, #password {
+        /* background-color: green; */
+        border: 0px;
+        border-bottom: 1px solid black;
+      }
+      #button {
+        margin-top: 5px;
+        padding: 5px;
+        /* border: 2px white solid; */
+        border: 0px;
+        color: white;
+        font-family: sans-serif;
+        background-color: blue;
+        border-radius: 2px;
+      }
+      /* input[type=password] {
+        background-color: red;
+      } */
+    </style>
+    <!-- step 1: include the jquery library -->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // $(document).ready();
+      // step 2: make sure the page is ready!!!
+      $(function() {
+        // $('#button').click(function() {
+        //   console.log("A button was clicked!");
+        // });
+        $('form').submit(function(event) {
+          console.log("A form has been submitted!");
+          // preventDefault() is a method off of the event object
+          event.preventDefault();
+        });
+
+        $('#button').click(function(event) {
+          console.log("screenX: " + event.screenX);
+          console.log("screenY: " + event.screenY);
+        });
+
+        $('#username').keypress(function(event) {
+          // event is an object
+          // event properties:  which, key, screenX, screenY...
+          console.log(event.which);
+          console.log(event.key);
+        });
+        // $('#login').submit();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form id="login">
+      <label>Username</label>
+      <input id="username" type="text" placeholder="Your Answer">
+      <input id="password" type="password">
+      <input id="button" type="submit" value="Log In">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Demo</title>
+    <!-- if i want to use jquery -->
+    <!-- step 1: include the library  -->
+    <script src="jquery-3.3.1.js"></script>
+    <!--script src="https://code.jquery.com/jquery-3.3.1.min.js"></script-->
+    <script>
+      //let name = "Jacob";
+      //document.write("Welcome to the Jungle  " + name + "!");
+      //window.alert("How are you?");
+      //window.prompt();
+      //window.confirm();
+
+      // console
+      //console.log("hello!");
+
+      // document
+      // DOM: Document Object Model
+      //setTimeout(function() {
+      // vanilla javascript
+      // before
+      //document.addEventListener("DOMContentLoaded", function() {
+      //  document.getElementById("header").innerHTML = "Welcome to Space, final frontier!";
+      //});
+
+      // after
+      //$(document).ready(function() {});
+      $(function(){
+        $('#header').html("Welcome to Space!");
+      });
+      //}, 5000);
+    </script>
+  </head>
+  <body>
+    <h1 id="header">Welcome to CodeCore Everyone!</h1>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS on Steriods</title>
+    <style>
+      /* block element */
+      /* 1. takes up all the horizontal space by default */
+      /* 2. collapses to the content */
+      /* 3. ability to specify width and height */
+      div {
+        display: inline-block;
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+        /* box model */
+        /* 1. margin */
+        /* 2. border */
+        /* 3. padding */
+        /* 4. content */
+        margin: 10px;
+        border: 2px solid brown;
+        padding: 20px;
+      }
+      /* inline */
+      /* 1. sit next to each other */
+      /* 2. width and height are ignored */
+      /* 3. baseline is followed */
+      span {
+        color: white;
+        background-color: grey;
+        width: 100px;
+        height: 100px;
+      }
+
+      title {
+        display: none;
+      }
+
+      /* 1. box model */
+      /* 2. block, inline, inline-block */
+      /* 3. floating */
+      /* 4. position */
+      /* 5. z-indexing */
+    </style>
+  </head>
+  <body>
+    <!-- divs are block -->
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+
+    <!-- spans are inline -->
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <img src="tale_of_two_cities.jpg">
+
+    <!-- inline block -->
+    <!-- change the display property of an element -->
+  </body>
+</html>
