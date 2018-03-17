@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Example</title>
+    <style>
+      h1 {
+        color: firebrick;
+        font-family: sans-serif;
+        font-size: 20px;
+      }
+      input {
+        display: block;
+        border: none;
+        /* TRBL = top right bottom left */
+        border-width: 0px 0px 1px 0px;
+        border-color: grey;
+        border-style: solid;
+        margin: 10px;
+      }
+      /* input[type=submit] {
+        background-color: firebrick;
+        color: white;
+      } */
+      #button {
+        background-color: firebrick;
+        color: white;
+        border-radius: 3px;
+      }
+    </style>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // $(document).ready();
+      $(function() {
+        $('form').submit(function(event) {
+          event.preventDefault();
+          // i want to construct a student object
+          // make me a student object based on what our data entry person entered.
+          // const student = {
+          //   id: 01,
+          //   name: "Jacob",
+          //   email: "jacobtran@gmail.com",
+          //   grade: 30
+          // };
+
+          let idValue = $('#id').val();
+          let nameValue = $('#name').val();
+          let emailValue = $('#email').val();
+          let gradeValue = $('#grade').val();
+
+          const student = {
+            id: idValue,
+            name: nameValue,
+            email: emailValue,
+            grade: gradeValue
+          };
+
+          console.log(student);
+          console.table(student);
+
+          //$('#id').val(); // get the value that was entered
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Student Entry Form</h1>
+    <form>
+      <input id="id" type="number" placeholder="id">
+      <input id="name" type="text" placeholder="name">
+      <input id="email" type="email" placeholder="email">
+      <input id="grade" type="number" placeholder="grade">
+      <input id="button" type="submit">
+    </form>
+  </body>
+</html>

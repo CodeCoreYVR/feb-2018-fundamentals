@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Student's Information</title>
+    <style>
+      table, th, td {
+        border: thin solid black;
+      }
+    </style>
+    <!-- jquery -->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // what is our first step when working with jQuery?
+      $(document).ready(function() {
+        // how do i target the name id?
+        $('#student1 #id').html('24601');
+        $('#student1 #name').html('Brian');
+        $('#student1 #email').html('brian@gmail.com');
+        $('#student1 #grade').html('98');
+
+        $('#student2 #id').html('01');
+        $('#student2 #name').html('Jacob');
+        $('#student2 #email').html('jacob@gmail.com');
+        $('#student2 #grade').html('48');
+
+        // create 3 more records for our database
+      }); // ?
+    </script>
+  </head>
+  <body>
+    <h1>Student Record</h1>
+    <table>
+      <!-- fields -->
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Grade</th>
+      </tr>
+
+      <!-- record -->
+      <tr id="student1">
+        <td id="id"></td>
+        <td id="name"></td>
+        <td id="email"></td>
+        <td id="grade"></td>
+      </tr>
+
+      <tr id="student2">
+        <td id="id"></td>
+        <td id="name"></td>
+        <td id="email"></td>
+        <td id="grade"></td>
+      </tr>
+    </table>
+  </body>
+</html>

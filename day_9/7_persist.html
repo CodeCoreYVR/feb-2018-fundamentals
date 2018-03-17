@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Persist</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      $(function(){
+        console.log(5 + 5);
+        console.log((5 + 5) * 2);
+
+        // persistence in memory
+        let sum = 5 + 5;
+        let mult = sum * 2;
+
+        console.log("The sum of 5 + 5 is " + sum);
+        console.log("The multiplication of " + sum + " times 2 is " + mult);
+
+        // in the browser
+        let currentValue = localStorage.getItem("visitorCount");
+        currentValue = parseInt(currentValue) + 1;
+        localStorage.setItem("visitorCount", currentValue);
+        // sessionStorage
+        // cookie (server)
+        // let visitors = 10;
+        $('#vistors').html( localStorage.getItem("visitorCount") );
+        // $('#vistors').html( visitors );
+      });
+
+    </script>
+  </head>
+  <body>
+    <h1>Visits: <span id="vistors"></span></h1>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+<!--  -->

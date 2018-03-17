@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Demo</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCENcLTd7H_Qg47w1ICEHS9ESQysyh9mm8",
+        authDomain: "message-board-dbfff.firebaseapp.com",
+        databaseURL: "https://message-board-dbfff.firebaseio.com",
+        projectId: "message-board-dbfff",
+        storageBucket: "message-board-dbfff.appspot.com",
+        messagingSenderId: "254519589679"
+      };
+      firebase.initializeApp(config);
+
+      $(function(){
+        // database reference to the table we created
+        const messagesRef = firebase.database().ref('/messages');
+
+        // the first time you connect to Firebase, it will send you all the
+        // messages one at a time with `child_added`. After that, every time you
+        // insert something to `messages` it will trigger the `child_added` again
+        messagesRef.on('child_added', function(data) {
+          const messageId = data.key;
+          const messageObj = data.val();
+          console.log('------- CHILD ADDED -------');
+          console.log(messageId);
+          console.log(messageObj);
+          console.log('-------');
+          let name = messageObj.name;
+          let body = messageObj.body;
+
+          $('#name').html( name );
+          $('#body').html( body );
+        });
+
+        //let name = "Jacob";
+        //localStorage.setItem("name", "Jacob");
+        // $('#name').html( ????? );
+      });
+
+    </script>
+
+  </head>
+  <body>
+    <h1>Firebase Demo</h1>
+    <p>Name: <span id="name"></span></p>
+    <p>Body: <span id="body"></span></p>
+  </body>
+</html>

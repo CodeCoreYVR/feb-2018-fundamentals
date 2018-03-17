@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Student's Information</title>
+    <style>
+      table, th, td {
+        border: thin solid black;
+      }
+    </style>
+    <!-- jquery -->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // what is our first step when working with jQuery?
+      $(document).ready(function() {
+        const student1 = {
+          id: 24601,
+          name: "Bryan",
+          email: "bryan@gmail.com",
+          grade: 98
+        };
+
+        const student2 = {
+          id: 01,
+          name: "Jacob",
+          email: "jacob@gmail.com",
+          grade: 58
+        };
+
+        const student3 = {
+          id: 02,
+          name: "Alexey",
+          email: "alexey@gmail.com",
+          grade: 23
+        };
+
+        // let fields = ["Id", "Name", "Email", "Grade"];
+        // let fields = [];
+        // for (let field in student1) {
+        //   fields.push(field);
+        // }
+
+        $('body').append('<table></table>');
+
+        let fields = [];
+        for (let field in student1) {
+          fields.push(field);
+        }
+
+        $('table').append(`
+          <tr>
+            <th>${fields[0]}</th>
+            <th>${fields[1]}</th>
+            <th>${fields[2]}</th>
+            <th>${fields[3]}</th>
+          </tr>`);
+
+        let students = [student1, student2, student3];
+
+        for (let student of students) {
+          $('table').append(`
+            <tr>
+              <td>${ student.id }</td>
+              <td>${ student.name }</td>
+              <td>${ student.email }</td>
+              <td>${ student.grade }</td>
+            </tr>`);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Student Record</h1>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Demo</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCENcLTd7H_Qg47w1ICEHS9ESQysyh9mm8",
+        authDomain: "message-board-dbfff.firebaseapp.com",
+        databaseURL: "https://message-board-dbfff.firebaseio.com",
+        projectId: "message-board-dbfff",
+        storageBucket: "message-board-dbfff.appspot.com",
+        messagingSenderId: "254519589679"
+      };
+      firebase.initializeApp(config);
+
+      $(function(){
+        // database reference to the table we created
+        const messagesRef = firebase.database().ref('/messages');
+
+        // the first time you connect to Firebase, it will send you all the
+        // messages one at a time with `child_added`. After that, every time you
+        // insert something to `messages` it will trigger the `child_added` again
+        messagesRef.on('child_added', function(data) {
+          const messageId = data.key;
+          const messageObj = data.val();
+          console.log('------- CHILD ADDED -------');
+          console.log(messageId);
+          console.log(messageObj);
+          console.log('-------');
+          let name = messageObj.name;
+          let body = messageObj.body;
+
+          $('#messages').prepend(`
+            <div id="${messageId}"><strong>${name}:</strong> ${body}
+              <button id="del-${messageId}"">Delete</button>
+              <hr>
+            </div>
+          `);
+
+          // this click event will be registered for each delete button
+          $(`#del-${messageId}`).click(function(event){
+            // if the button was clicked, we are going to use the id attr in the button to remove that item from the database
+            firebase.database().ref(`messages/${messageId}`).remove();
+          });
+
+          // when firebase sends back a child removed event, i will tap into the data object to which id needs to be removed.  I will lookup up using jquery, which p tag should be removed.
+          messagesRef.on('child_removed', function(data){
+            $(`#${data.key}`).remove();
+          });
+        });
+
+        $('form').submit(function(event){
+          event.preventDefault();
+          let nameValue = $('#name').val();
+          let bodyValue = $('#message').val();
+
+          // this will push your data into the firebase database
+          // this will fire an on child_added event, and that event handler currently takes care of prepending...
+          messagesRef.push({ name: nameValue, body: bodyValue });
+
+          // UX feature
+          $('#message').val("");
+          $('#message').focus();
+        });
+      });
+
+    </script>
+
+  </head>
+  <body>
+    <h1>Firebase Demo</h1>
+    <form>
+      <input id="name" type="text" placeholder="name">
+      <input id="message" type="text" placeholder="message">
+      <input type="submit">
+    </form>
+    <h2>Messages</h2>
+    <div id="messages"></div>
+  </body>
+</html>
