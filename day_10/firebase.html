@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCENcLTd7H_Qg47w1ICEHS9ESQysyh9mm8",
+        authDomain: "message-board-dbfff.firebaseapp.com",
+        databaseURL: "https://message-board-dbfff.firebaseio.com",
+        projectId: "message-board-dbfff",
+        storageBucket: "message-board-dbfff.appspot.com",
+        messagingSenderId: "254519589679"
+      };
+      firebase.initializeApp(config);
+
+      $(document).ready(function(){
+        const messagesRef = firebase.database().ref('/messages');
+
+        messagesRef.on('child_added', function(data) {
+          console.log( data.key );
+          console.log( data.val() );
+          console.log( data.val().name );
+          console.log( data.val().body );
+          console.log('--');
+
+          $('body').append(`<div>${data.val().name}: ${data.val().body}</div>`);
+        });
+      });
+      // any time there is data inside my messages table, i will get that information through this child_added event when my page loads
+      // if additional information is added to my page after it is loaded, this event will be called again, to let update the view so we have all the current messages
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

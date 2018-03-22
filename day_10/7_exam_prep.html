@@ -1,0 +1,57 @@
+<!-- Layout -->
+<!-- create page with 3 equal columns -->
+<!-- napolean ice cream: chocolate, vanilla, strawberry -->
+
+<!-- jQuery -->
+<!-- use jquery to load into each section a label for that flavour -->
+<!-- use jquery to load an image of the ingredient into each section for that flavour -->
+
+<!-- Firebase -->
+<!-- create firebase database that will store these 3 flavours -->
+<!-- and then load them in -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ice Cream</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      $(function() {
+        $('#chocolate').append(`<h1>Chocolate</h1>`);
+        $('#strawberry').append(`<h1>Strawberry</h1>`);
+        $('#vanilla').append(`<h1>Vanilla</h1>`);
+      });
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      #chocolate {
+        background-color: brown;
+      }
+      #strawberry {
+        background-color: pink;
+      }
+      #vanilla {
+        background-color: ivory;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="chocolate" class="col-sm-4"></div>
+        <div id="strawberry" class="col-sm-4"></div>
+        <div id="vanilla" class="col-sm-4"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--  -->

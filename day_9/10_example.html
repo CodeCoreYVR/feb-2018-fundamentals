@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ToDo List</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        let todoList = ["Walk the dog", "Laundry", "Watch Movie", "Wash the dishes", "Study", "Eat"];
+        // $('ol').append(`<li>${todoList[0]}</li>`);
+        // $('ol').append(`<li>${todoList[1]}</li>`);
+        // $('ol').append(`<li>${todoList[2]}</li>`);
+        for (let item of todoList) {
+          $('ol').append(`<li>${item} <button>Delete</button></li>`);
+        }
+
+        $('form').submit(function(event){
+          event.preventDefault();
+          // console.log( $('#todo').val() );
+          let value = $('#todo').val();
+          $('ol').append(`<li>${value} <button>Delete</button></li>`);
+
+          $('button').click(function() {
+            $(this).parent().remove();
+          });
+        });
+
+        $('button').click(function() {
+          $(this).parent().remove();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <form>
+      <input id="todo" type="text">
+      <input id="button" type="submit">
+    </form>
+    <ol>
+      <!-- <li>Walk the dog</li>
+      <li>Laundry</li>
+      <li>Watch Movie</li> -->
+    </ol>
+  </body>
+</html>

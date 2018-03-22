@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Strike It</title>
+    <!-- 1. load jquery  -->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      // 2. make sure the document is ready
+      $(function() {
+        // 3. add click event handler to li's
+        $('li').click(function(){
+          console.log('an li was clicked');
+          // 4. use this to determine which specific li was clicked
+          // $(this).hide();
+
+          // console.log( $(this).css('text-decoration') ); // getter
+          // $(this).css('text-decoration', 'line-through'); // setter
+          $(this).addClass('cross-out');
+        });
+      });
+    </script>
+    <style>
+      .cross-out {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Strike Out</h1>
+    <ol>
+      <li>Dogs</li>
+      <li>Cats</li>
+      <li>Birds</li>
+      <li>Fish</li>
+    </ol>
+  </body>
+</html>
